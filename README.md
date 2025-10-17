@@ -1,12 +1,11 @@
 # CyberScan-Traffic dataset description
 
-CyberScan-Traffic is a dataset and toolkit designed for network traffic analysis.  
-It includes raw PCAP files, processed CSV files, and train/test datasets for machine learning models.  
-Scripts are provided to convert raw PCAPs into CSV format with relevant network features.
+CyberScan-Traffic is a dataset and toolkit designed for network traffic analysis. It includes raw PCAP files, processed CSV files, and train/test datasets for machine learning models. Scripts are provided to convert raw PCAPs into CSV format with relevant network features.
 
 ---
 
 ## Repository Structure
+```
 CyberScan-Traffic/
 ├── dataset/
 │ ├── raw_pcap/ # Contains raw PCAP files
@@ -17,7 +16,7 @@ CyberScan-Traffic/
 ├── scripts/
 │ └── pcap_to_csv.py # Script to convert PCAP files to CSV
 └── README.md # This file
-
+```
 
 
 ---
@@ -38,15 +37,15 @@ CyberScan-Traffic/
 
 ```bash
 pip install pyshark pandas
-
+```
 
 2. **Run the conversion script**: 
 python scripts/pcap_to_csv.py --input_dir dataset/raw_pcap --output_dir dataset/csv
-
+```
 --input_dir: Directory containing raw PCAP files.
 
 --output_dir: Directory where CSV files will be saved.
-
+```
 Result:
 
 Each PCAP file in raw_pcap/ will be converted into a corresponding CSV file in csv/.
