@@ -1,6 +1,6 @@
-# CyberScan-Traffic dataset description
+# SCARNeR dataset description
 
-**CyberScan-Traffic** is a public dataset of network traffic that was used in our research paper to evaluate detection and analysis methods.  
+**Scan Attack Network Environment Repository (SCANeR)** is a public dataset of network traffic that was used in our research paper to evaluate detection and analysis methods.  
 The dataset contains raw PCAP files captured from various network scenarios, processed CSV files with extracted network features, and train/test splits suitable for machine learning experiments.  
 
 This dataset is intended for research purposes and allows reproducibility of the results presented in our paper.
