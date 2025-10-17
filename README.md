@@ -1,6 +1,9 @@
 # CyberScan-Traffic dataset description
 
-CyberScan-Traffic is a dataset and toolkit designed for network traffic analysis. It includes raw PCAP files, processed CSV files, and train/test datasets for machine learning models. Scripts are provided to convert raw PCAPs into CSV format with relevant network features.
+**CyberScan-Traffic** is a public dataset of network traffic that was used in our research paper to evaluate detection and analysis methods.  
+The dataset contains raw PCAP files captured from various network scenarios, processed CSV files with extracted network features, and train/test splits suitable for machine learning experiments.  
+
+This dataset is intended for research purposes and allows reproducibility of the results presented in our paper.
 
 ---
 
