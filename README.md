@@ -11,7 +11,7 @@ This dataset is intended for research purposes and allows reproducibility of the
 ```
 SCANeR/
 ├── script/
-│ ├── pcap_files/ # Contains original raw PCAP files
+│ ├── pcap_files/ # Contains original raw PCAP files used for processing to extract features
 │ ├── csv_files/ # Final storage for extracted features per original .pcap fileTemporarily stores all per-chunk .csv feature files.
 | ├── output/ # Temporarily stores all per-chunk .csv feature files.
 | ├── split_temp/ # Temporary folder for split .pcap chunks
@@ -24,7 +24,9 @@ SCANeR/
 │ ├── Supporting_functions.py # Common helper functions for parsing, file I/O, etc.
 |
 ├── dataset/
-│ └── dataset_final
+│ └── csv/ # Contain CSV files 
+│ └── pcap/ # Contain PCAP files
+│ └── dataset_final # Final labeled dataset (merged and ready for ML)
 │ ├── Labeling.ipynb/ # Contains raw PCAP files
 └── README.md # This file
 ```
@@ -32,31 +34,67 @@ SCANeR/
 
 ---
 
-## Dataset Details
 
-- `raw_pcap/`: Contains raw PCAP files captured from network traffic.  
-- `csv/`: Stores CSV files generated from PCAPs. Each row corresponds to a network flow or packet with extracted features.  
-- `train/`: CSV files used to train machine learning models.  
-- `test/`: CSV files used to evaluate models.  
-- `scripts/pcap_to_csv.py`: Script to process PCAP files and extract relevant network features to CSV.
+## How to run
 
----
+## 🧰 1. Install Required Python Packages
 
-## Converting PCAP to CSV
+Before running the scripts, make sure you have **Python 3.8+** installed.
 
-1. **Install required Python packages**:
+Then install all required dependencies using the command below:
 
 ```bash
-pip install pyshark pandas
+pip install tqdm==4.67.1 scipy==1.15.3 dpkt==1.9.8 pandas==2.2.3 scapy==2.6.1 scikit-learn==1.6.1 pyshark
+
+```
+Note: pyshark and pandas are required for converting .pcap files into .csv format.
+
+## ⚙️ 2. Run the Conversion Script
+### Step 1: Place PCAP Files
+
+Copy your .pcap files into the folder:
+script/pcap_files/
+
+### Step 2: Run the Dataset Generation Script
+
+Run the following command from the project directory:
+```bash
+sudo python3 Generating_dataset.py
 ```
 
-2. **Run the conversion script**: 
-python scripts/pcap_to_csv.py --input_dir dataset/raw_pcap --output_dir dataset/csv
-```
---input_dir: Directory containing raw PCAP files.
+Command Parameters:
 
---output_dir: Directory where CSV files will be saved.
+--input_dir: Directory containing the raw .pcap files (default: pcap_files/)
+
+--output_dir: Directory where the converted .csv files will be saved (default: csv_files/)
+
+### Step 3: Check the Output
+
+After the script finishes running:
+
+The .pcap files will be processed and converted into .csv files.
+
+The resulting .csv feature files will be saved in:
+
+script/csv_files/
+
+
+# 🧩 Example Workflow
+## Step 1: Place your PCAP file
+```bash
+cp sample.pcap script/pcap_files/
 ```
+
+## Step 2: Run the conversion
+```bash
+sudo python3 Generating_dataset.py
+```
+## Step 3: Verify output CSV files
+```bash
+ls script/csv_files/
+```
+
+
 Result:
 
 Each PCAP file in raw_pcap/ will be converted into a corresponding CSV file in csv/.
