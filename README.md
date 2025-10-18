@@ -9,15 +9,23 @@ This dataset is intended for research purposes and allows reproducibility of the
 
 ## Repository Structure
 ```
-CyberScan-Traffic/
+SCANeR/
+├── script/
+│ ├── pcap_files/ # Contains original raw PCAP files
+│ ├── csv_files/ # Final storage for extracted features per original .pcap fileTemporarily stores all per-chunk .csv feature files.
+| ├── output/ # Temporarily stores all per-chunk .csv feature files.
+| ├── split_temp/ # Temporary folder for split .pcap chunks
+│ ├── Communication_features.py # Extracts communication-level network features
+│ ├── Connectivity_features.py # Extracts connectivity-based network metrics
+│ ├── Dynamic_features.py # Extracts dynamic/time-based statistics
+│ ├── Layered_features.py # Extracts protocol-layer-based features
+│ ├── Feature_extraction.py # Main driver script for feature extraction
+│ ├── Generating_dataset.py # Builds and merges train/test datasets
+│ ├── Supporting_functions.py # Common helper functions for parsing, file I/O, etc.
+|
 ├── dataset/
-│ ├── raw_pcap/ # Contains raw PCAP files
-│ ├── csv/ # Contains CSV files converted from PCAPs
-│ ├── train/ # Training dataset CSV files
-│ ├── test/ # Testing dataset CSV files
-│ └── README.md # Dataset-specific README
-├── scripts/
-│ └── pcap_to_csv.py # Script to convert PCAP files to CSV
+│ └── dataset_final
+│ ├── Labeling.ipynb/ # Contains raw PCAP files
 └── README.md # This file
 ```
 
